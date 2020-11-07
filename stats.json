@@ -1,0 +1,11 @@
+Installing 'webpack-cli' (running 'npm install -D webpack-cli')...
+
+> fsevents@1.2.12 install /Users/renxiaojuan/qianding/qdp-qiyeweixin-webui/node_modules/fsevents
+> node-gyp rebuild
+
++ webpack-cli@3.3.11
+added 78 packages from 60 contributors in 17.762s
+
+28 packages are looking for funding
+  run `npm fund` for details
+

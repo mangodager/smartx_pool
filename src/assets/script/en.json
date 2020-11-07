@@ -1,0 +1,23 @@
+{
+  "acount": "Acount",
+  "miner": "Miner",
+  "power": "Power",
+  "undivided": "Undivided",
+  "high": "height",
+  "pool": "Pool power",
+  "miners": "Total miners",
+  "bill": "Bill List",
+  "time": "Time",
+  "number": "amount",
+  "transactions": "ID of transactions",
+  "status": "Status",
+  "prev": "prev",
+  "next": "next",
+  "miner_list": "Miner List",
+  "no": "No.",
+  "name": "Miner Name",
+  "real": "Real-time Power",
+  "avg": "Average Power",
+  "status1": "Transferring",
+  "status2": "Complete"
+}

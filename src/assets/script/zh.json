@@ -1,0 +1,23 @@
+{
+  "acount": "账户",
+  "miner": "矿机数",
+  "power": "算力",
+  "undivided": "未分账",
+  "high": "高度",
+  "pool": "矿池算力",
+  "miners": "总矿机数",
+  "bill": "账单列表",
+  "time": "时间",
+  "number": "金额",
+  "transactions": "交易ID",
+  "status": "状态",
+  "prev": "上一页",
+  "next": "下一页",
+  "miner_list": "矿机列表",
+  "no": "编号",
+  "name": "矿机名",
+  "real": "实时算力",
+  "avg": "平均算力",
+  "status1": "正在转",
+  "status2": "完成"
+}
