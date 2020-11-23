@@ -26,7 +26,8 @@
         </div>
         <div class="item">
           <div class="cont">
-            <p class="text">{{amount_cur/10000}}</p>
+            <!-- 新版本amount_cur好像不用除10000 -->
+            <p class="text">{{amount_cur}}</p>
             <p class="label">{{language ? zh.undivided : en.undivided}}</p>
           </div>
           <img src="../assets/images/img_coin.png" />
@@ -58,7 +59,7 @@
           </el-table-column>
           <el-table-column :label="language ? zh.number : en.number" width="100">
             <template slot-scope="scope">
-              {{scope.row.amount/10000}}
+              {{scope.row.amount}}
             </template>
           </el-table-column>
           <el-table-column prop="hash" :label="language ? zh.transactions : en.transactions" show-overflow-tooltip>
@@ -109,13 +110,14 @@ import Footer from "./Footer";
 import Header from "./Header";
 import ZH from "../assets/script/zh.json";
 import EN from "../assets/script/EN.json";
+import BigNumber from 'bignumber.js'
 import { GetQueryValue, GetValue } from "../assets/script/utils";
 export default {
   name: "home",
   data() {
     return {
-      host: "http://www.iobft.com:8101", //请求接口的域名
-      //host: "http://192.168.1.104:5000",
+      // host: "http://www.iobft.com:8101", //请求接口的域名
+      host: "https://pool.smartx.one",
       miners: {
         list: [], // 矿机列表
         total: 0, // 矿机列表总条数
@@ -201,14 +203,24 @@ export default {
       this.axios.get(url).then((res) => {
 
         console.log("11");
+        console.log(res.data);
         this.miners.list = res.data.miners;
         this.miners.total = res.data.totalMiners;
+        for(var i=0;i<res.data.transfers.length;i++)
+        {
+          var amount = new BigNumber((new BigNumber(res.data.transfers[i].amount)).toFixed(4, BigNumber.ROUND_DOWN));
+          console.log(amount);
+          res.data.transfers[i].amount = amount.toString();
+        }
         this.transfers.list = res.data.transfers;
 
         console.log(this.miners.list);
 
         this.totalPower = res.data.totalPower;
-        this.amount_cur = res.data.amount_cur;
+        var amount_cur = new BigNumber((new BigNumber(res.data.amount_cur)).toFixed(4, BigNumber.ROUND_DOWN));
+        this.amount_cur = amount_cur;
+
+        
         console.log("22");
       });
     },
@@ -220,6 +232,7 @@ export default {
   destroyed() {},
 };
 </script>
+// css
 <style lang="less" >
 .container {
   max-width: 1200px;
